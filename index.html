@@ -8,6 +8,16 @@
 <meta name="keywords" content="Chennai automotive photographer, superbike photography, car meets Chennai, rollers photography">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 html {
 scroll-behavior: smooth;
@@ -113,7 +123,7 @@ footer {
 </div>
 </section>
 
-<section class="section" id="portfolio">
+<section class="section fade-in" id="portfolio">
 <h2>Portfolio</h2>
 <div class="gallery">
 <img src="DSC_0479.jpg">
@@ -127,7 +137,7 @@ footer {
 
 </section>  <!-- end of portfolio -->
 
-<section class="section" style="text-align:center;">
+<section class="section fade-in" style="text-align:center;">
 <h2 style="margin-bottom:30px;">Featured Reel</h2>
 
 <video style="width:100%; max-width:700px; border-radius:12px;" autoplay muted loop playsinline>
@@ -137,8 +147,8 @@ footer {
 
 </section>
 
-<section class="section" id="about">
-<section class="section" id="about">
+<section class="section fade-in" id="about">
+<section class="section fade-in" id="about">
 <h2>About</h2>
 <p>
 Nikkchroma is an automotive visual creator based in Chennai,
@@ -147,7 +157,7 @@ Capturing motion, aggression, and mechanical beauty through cinematic frames.
 </p>
 </section>
 
-<section class="section" id="contact">
+<section class="section fade-in" id="contact">
 <h2>Contact</h2>
 <p>Available for shoots & collaborations.</p>
 <a class="btn" href="https://instagram.com/nikkchroma" target="_blank">Instagram</a>
@@ -158,6 +168,27 @@ Capturing motion, aggression, and mechanical beauty through cinematic frames.
 <footer>
 © 2026 Nikkchroma | Chennai Automotive Visuals
 </footer>
+<script>
+const faders = document.querySelectorAll('.fade-in');
 
+const appearOptions = {
+    threshold: 0.2
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+</script>
 </body>
 </html>
