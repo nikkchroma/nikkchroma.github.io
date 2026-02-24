@@ -32,6 +32,16 @@ nav {
 
 html { scroll-behavior: smooth; }
 
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, #b11226, #ff3c00);
+    z-index: 2000;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -85,6 +95,10 @@ nav a {
         url("hero.jpg") center/cover no-repeat;
     z-index: -1;
     animation: slowZoom 20s ease-in-out infinite alternate;
+}
+    
+.hero::before {
+    background-attachment: fixed;
 }
 
 @keyframes slowZoom {
@@ -191,7 +205,8 @@ nav a {
 }
 
 .folder-cover:hover {
-    transform: scale(1.03);
+    transform: scale(1.07);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
 }
 
 .folder-overlay {
@@ -221,11 +236,52 @@ footer {
     padding: 40px;
     background: #000;
 }
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+}
+.stats h3 {
+    font-size: 40px;
+    color: #b11226;
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(177,18,38,0.2), transparent 60%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.section h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0%;
+    height: 3px;
+    background: #b11226;
+    transition: 0.5s ease;
+}
+
+.section.show h2::after {
+    width: 100%;
+}
+
 
 </style>
 </head>
 <body>
-
+<div class="cursor-glow"></div>
 <nav>
 <h1>NIKKCHROMA</h1>
 <div>
@@ -234,6 +290,8 @@ footer {
 <a href="#contact">Contact</a>
 </div>
 </nav>
+
+<div id="progressBar"></div>
 
 <section class="hero">
 <div>
@@ -308,6 +366,15 @@ INDRC 2026 Coverage
 </p>
 </section>
 
+<section class="section fade-in" style="text-align:center;">
+<h2>Impact</h2>
+<div class="stats">
+<div><h3 class="counter" data-target="100">0</h3><p>Projects</p></div>
+<div><h3 class="counter" data-target="600">0</h3><p>Followers</p></div>
+<div><h3 class="counter" data-target="100000">0</h3><p>Monthly Views</p></div>
+</div>
+</section>
+
 <footer>
 © 2026 Nikkchroma | Chennai Automotive Visuals
 </footer>
@@ -324,6 +391,42 @@ observer.unobserve(entry.target);
 }, { threshold: 0.2 });
 
 faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+<script>
+window.onscroll = function() {
+let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let scrolled = (winScroll / height) * 100;
+document.getElementById("progressBar").style.width = scrolled + "%";
+};
+</script>
+
+<script>
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+counter.innerText = '0';
+const updateCounter = () => {
+const target = +counter.getAttribute('data-target');
+const c = +counter.innerText;
+const increment = target / 100;
+if(c < target) {
+counter.innerText = Math.ceil(c + increment);
+setTimeout(updateCounter, 20);
+} else {
+counter.innerText = target;
+}
+};
+updateCounter();
+});
+</script>
+
+<script>
+document.addEventListener('mousemove', e => {
+const glow = document.querySelector('.cursor-glow');
+glow.style.left = e.clientX + 'px';
+glow.style.top = e.clientY + 'px';
+});
 </script>
 
 </body>
