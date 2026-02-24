@@ -462,15 +462,6 @@ faders.forEach(fader => {
 });
 </script>
 
-<script>
-window.addEventListener("load", function() {
-    const loader = document.getElementById("loader");
-
-    setTimeout(() => {
-        loader.classList.add("loader-hidden");
-    }, 2000);
-});
-</script>
 
 <script>
 document.addEventListener("mousemove", e => {
@@ -505,6 +496,15 @@ faders.forEach(fader => {
 });
 </script>
 
+<script>
+window.addEventListener("load", function() {
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+        loader.classList.add("loader-hidden");
+    }, 2000);
+});
+</script>
 <div id="loader">
     <h1 class="loader-text">NIKKCHROMA</h1>
 </div>
