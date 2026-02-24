@@ -90,6 +90,15 @@ nav a {
     color: white;
     text-decoration: none;
     border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 15px;   /* 👈 THIS ADDS SPACE */
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
 }
 
 /* SECTION */
@@ -221,9 +230,10 @@ Capturing motion, aggression, and mechanical beauty through cinematic frames.
 <h2>Contact</h2>
 <p>Available for shoots & collaborations.</p>
 <br>
+<div class="contact-buttons">
 <a class="btn" href="https://instagram.com/nikkchroma" target="_blank">Instagram</a>
-<br><br>
 <a class="btn" href="https://wa.me/917550003517" target="_blank">Book a Shoot</a>
+</div>
 </section>
 
 <section class="section fade-in" style="text-align:center;">
