@@ -370,6 +370,46 @@ nav div {
 
 }
 
+.engine-start {
+    position: absolute;
+    z-index: 3;
+    background: rgba(0,0,0,0.7);
+    padding: 18px 35px;
+    border: 2px solid #b11226;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.engine-start:hover {
+    background: #b11226;
+}
+
+.hero-video {
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.rpm {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid #333;
+    overflow: hidden;
+}
+
+.rpm-fill {
+    background: #b11226;
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    transition: 0.2s ease;
+}
+
 
 </style>
 </head>
@@ -387,8 +427,16 @@ nav div {
 </div>
 </nav>
 
-<div id="progressBar"></div>
+<div class="rpm">
+    <div class="rpm-fill"></div>
+</div>
 
+<div id="progressBar"></div>
+    
+<div id="engineStart" class="engine-start">
+    START ENGINE
+</div>
+    
 <section class="hero">
 <div>
 <h2>Visuals that Slap</h2>
@@ -539,6 +587,26 @@ window.location = href;
 });
 </script>
 
+</script>
+
+<script>
+const startBtn = document.getElementById("engineStart");
+const heroVideo = document.querySelector(".hero-video");
+
+startBtn.addEventListener("click", () => {
+    heroVideo.play();
+    heroVideo.style.opacity = "1";
+    startBtn.style.display = "none";
+});
+</script>
+
+<script>
+window.addEventListener("scroll", () => {
+let scrollTop = document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let percent = (scrollTop / height) * 100;
+document.querySelector(".rpm-fill").style.height = percent + "%";
+});
 </script>
 
 </body>
