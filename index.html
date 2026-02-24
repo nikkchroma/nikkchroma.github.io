@@ -20,29 +20,6 @@ body {
     color: white;
 }
 
-
-.folder-card {
-    text-decoration: none;
-}
-
-.folder-box {
-    width: 250px;
-    height: 150px;
-    background: #111;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
-    border: 1px solid #222;
-}
-
-.folder-box:hover {
-    transform: translateY(-5px);
-    background: #1a1a1a;
-}
 /* NAVBAR */
 nav {
     display: flex;
@@ -85,7 +62,7 @@ nav a {
     width: 100%;
     height: 100%;
     background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
         url("hero.jpg") center/cover no-repeat;
     z-index: -1;
     animation: slowZoom 20s ease-in-out infinite alternate;
@@ -131,59 +108,41 @@ nav a {
     transform: translateY(0);
 }
 
-/* GALLERY */
-.gallery {
-    column-count: 3;
-    column-gap: 20px;
+/* FOLDER GRID */
+.folder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
 }
 
-.gallery img {
-    width: 100%;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    break-inside: avoid;
-    transition: 0.3s ease;
+.folder-card {
+    text-decoration: none;
 }
 
-.gallery img:hover {
+.folder-cover {
+    height: 260px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.folder-cover:hover {
     transform: scale(1.03);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-    .gallery { column-count: 2; }
-}
-@media (max-width: 600px) {
-    .gallery { column-count: 1; }
-}
-
-/* LIGHTBOX */
-#lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 12px;
-}
-
-#closeBtn {
+.folder-overlay {
     position: absolute;
-    top: 30px;
-    right: 40px;
-    font-size: 40px;
-    cursor: pointer;
+    bottom: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 /* FOOTER */
@@ -208,7 +167,7 @@ footer {
 
 <section class="hero">
 <div>
-<h2>Visual that Slaps</h2>
+<h2>Visuals that Slap</h2>
 <p>Motorsport Photography & Cinematic Rollers | Chennai</p>
 <br>
 <a class="btn" href="#portfolio">View Portfolio</a>
@@ -221,29 +180,29 @@ footer {
 <div class="folder-grid">
 
 <a href="cars.html" class="folder-card">
-    <div class="folder-cover" style="background-image:url('cars-cover.jpg');">
-        <div class="folder-overlay">Cars Collection</div>
-    </div>
+<div class="folder-cover" style="background-image: url('cars-cover.jpg');">
+<div class="folder-overlay">Cars Collection</div>
+</div>
 </a>
 
 <a href="bikes.html" class="folder-card">
-    <div class="folder-cover" style="background-image:url('bikes-cover.jpg');">
-        <div class="folder-overlay">Superbikes Collection</div>
-    </div>
+<div class="folder-cover" style="background-image: url('bikes-cover.jpg');">
+<div class="folder-overlay">Superbikes Collection</div>
+</div>
 </a>
 
 <a href="rollers.html" class="folder-card">
-    <div class="folder-cover" style="background-image:url('rollers-cover.jpg');">
-        <div class="folder-overlay">Rollers Collection</div>
-    </div>
+<div class="folder-cover" style="background-image: url('rollers-cover.jpg');">
+<div class="folder-overlay">Rollers Collection</div>
+</div>
 </a>
 
 </div>
 </section>
 
-
 <section class="section fade-in" style="text-align:center;">
 <h2>Featured Reel</h2>
+<br>
 <video controls style="width:100%; max-width:700px; border-radius:12px;">
 <source src="reel.mp4" type="video/mp4">
 </video>
@@ -282,13 +241,7 @@ INDRC 2026 Coverage
 © 2026 Nikkchroma | Chennai Automotive Visuals
 </footer>
 
-<div id="lightbox">
-<span id="closeBtn">&times;</span>
-<img id="lightboxImg">
-</div>
-
 <script>
-/* Fade In */
 const faders = document.querySelectorAll('.fade-in');
 const appearOnScroll = new IntersectionObserver((entries, observer) => {
 entries.forEach(entry => {
@@ -299,29 +252,6 @@ observer.unobserve(entry.target);
 }, { threshold: 0.2 });
 
 faders.forEach(fader => appearOnScroll.observe(fader));
-
-/* Lightbox */
-const images = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const closeBtn = document.getElementById('closeBtn');
-
-images.forEach(img => {
-img.addEventListener('click', () => {
-lightbox.style.display = 'flex';
-lightboxImg.src = img.src;
-});
-});
-
-closeBtn.addEventListener('click', () => {
-lightbox.style.display = 'none';
-});
-
-lightbox.addEventListener('click', (e) => {
-if (e.target !== lightboxImg) {
-lightbox.style.display = 'none';
-}
-});
 </script>
 
 </body>
