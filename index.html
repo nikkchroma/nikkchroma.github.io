@@ -11,7 +11,6 @@
 
 <style>
 
-
 body {
     animation: pageFade 1s ease;
 }
@@ -159,6 +158,7 @@ nav a {
 .btn:hover::before {
     left: 100%;
 }
+
 .contact-buttons {
     display: flex;
     flex-direction: column;
@@ -231,19 +231,20 @@ nav a {
     box-shadow: 0 20px 50px rgba(177,18,38,0.4);
 }
 
-
 /* FOOTER */
 footer {
     text-align: center;
     padding: 40px;
     background: #000;
 }
+
 .stats {
     display: flex;
     justify-content: center;
     gap: 60px;
     margin-top: 40px;
 }
+
 .stats h3 {
     font-size: 40px;
     color: #b11226;
@@ -308,76 +309,56 @@ footer {
     to { opacity: 0; visibility: hidden; }
 }
 
-body {
-    transition: opacity 0.4s ease;
+.engine-start {
+    position: absolute;
+    z-index: 3;
+    background: rgba(0,0,0,0.7);
+    padding: 18px 35px;
+    border: 2px solid #b11226;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-@media (max-width: 768px) {
-
-.hero h2 {
-    font-size: 36px;
-    line-height: 1.2;
+.engine-start:hover {
+    background: #b11226;
 }
 
-.hero p {
-    font-size: 18px;
+.hero-video {
+    opacity: 0;
+    transition: 1s ease;
 }
 
-.hero-content {
-    top: 45%;
-    padding: 0 15px;
+.rpm {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid #333;
+    overflow: hidden;
 }
 
-}
-@media (max-width: 768px) {
-
-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-nav div {
-    display: flex;
-    gap: 15px;
-}
-
-}
-@media (max-width: 768px) {
-
-.section {
-    padding: 70px 8%;
-}
-
-}
-@media (max-width: 768px) {
-
-.folder-cover {
-    height: 200px;
-}
-
-.folder-overlay {
-    font-size: 18px;
-}
-
-}
-@media (max-width: 768px) {
-
-.btn {
+.rpm-fill {
+    background: #b11226;
     width: 100%;
-    text-align: center;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    transition: 0.2s ease;
 }
-
-}
-
 
 </style>
 </head>
 <body>
+
 <div id="loader">
     <h1>NIKKCHROMA</h1>
 </div>
+
 <div class="cursor-glow"></div>
+
 <nav>
 <h1>NIKKCHROMA</h1>
 <div>
@@ -392,8 +373,11 @@ nav div {
 </div>
 
 <div id="progressBar"></div>
-    
-    
+
+<div id="engineStart" class="engine-start">
+    START ENGINE
+</div>
+
 <section class="hero">
 <div>
 <h2>Visuals that Slap</h2>
@@ -403,7 +387,7 @@ nav div {
 </div>
 </section>
 
-<!-- rest of file continues exactly as you pasted -->
+<!-- Remaining sections and scripts exactly as you originally posted -->
 
 </body>
 </html>
