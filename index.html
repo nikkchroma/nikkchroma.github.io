@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 body {
     animation: pageFade 1s ease;
 }
@@ -28,7 +29,9 @@ nav {
     to { transform: translateY(0); opacity: 1; }
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 #progressBar {
     position: fixed;
@@ -48,6 +51,7 @@ body {
 }
 
 /* NAVBAR */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -72,6 +76,7 @@ nav a {
 }
 
 /* HERO */
+
 .hero {
     height: 100vh;
     position: relative;
@@ -120,6 +125,7 @@ nav a {
 }
 
 /* BUTTON */
+
 .btn {
     background: linear-gradient(135deg, #b11226, #8e0f1f);
     padding: 14px 28px;
@@ -131,13 +137,16 @@ nav a {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 8px 20px rgba(177,18,38,0.3);
-    position: relative;
-    overflow: hidden;
 }
 
 .btn:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(177,18,38,0.5);
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
 }
 
 .btn::before {
@@ -163,6 +172,7 @@ nav a {
 }
 
 /* SECTION */
+
 .section {
     padding: 100px 10%;
 }
@@ -181,6 +191,7 @@ nav a {
 }
 
 /* FOLDER GRID */
+
 .folder-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -203,8 +214,8 @@ nav a {
 }
 
 .folder-cover:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 50px rgba(177,18,38,0.4);
+    transform: scale(1.07);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
 }
 
 .folder-overlay {
@@ -218,7 +229,17 @@ nav a {
     letter-spacing: 1px;
 }
 
+.folder-cover {
+    transition: all 0.4s ease;
+}
+
+.folder-cover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(177,18,38,0.4);
+}
+
 /* FOOTER */
+
 footer {
     text-align: center;
     padding: 40px;
@@ -267,7 +288,6 @@ footer {
     width: 100%;
 }
 
-/* Loader */
 #loader {
     position: fixed;
     width: 100%;
@@ -336,6 +356,7 @@ footer {
     bottom: 0;
     transition: 0.2s ease;
 }
+
 </style>
 </head>
 
@@ -374,8 +395,3 @@ footer {
         <a class="btn" href="#portfolio">View Portfolio</a>
     </div>
 </section>
-
-<!-- Rest of your sections and scripts remain unchanged -->
-
-</body>
-</html>
