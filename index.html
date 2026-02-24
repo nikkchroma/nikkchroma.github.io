@@ -122,6 +122,27 @@ nav a {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* CINEMATIC RED HERO GLOW */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(177,18,38,0.25), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    z-index: -1;
+    animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
 /* BUTTON */
 
 .btn {
@@ -164,6 +185,14 @@ nav a {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 10px rgba(177,18,38,0.6),
+        0 0 25px rgba(177,18,38,0.4),
+        0 0 40px rgba(177,18,38,0.2);
 }
 
 /* SECTION */
@@ -276,10 +305,22 @@ footer {
     visibility: hidden;
 }
 
+.cursor-glow {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(177,18,38,0.15), transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="cursor-glow"></div>
 
 <div id="loader">
     <h1 class="loader-text">NIKKCHROMA</h1>
@@ -428,6 +469,14 @@ window.addEventListener("load", function() {
     setTimeout(() => {
         loader.classList.add("loader-hidden");
     }, 2000);
+});
+</script>
+
+<script>
+document.addEventListener("mousemove", e => {
+    const glow = document.querySelector(".cursor-glow");
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
 });
 </script>
 
