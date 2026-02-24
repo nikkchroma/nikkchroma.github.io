@@ -349,7 +349,41 @@ footer {
         </div>
     </div>
 </section>
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+    });
+}, { threshold: 0.2 });
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+</script>
 
 <footer>
     © 2026 Nikkchroma | Chennai Automotive Visuals
 </footer>
+
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+    });
+}, { threshold: 0.2 });
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+</script>
+
+</body>
+</html>
