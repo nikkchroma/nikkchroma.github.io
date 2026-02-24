@@ -81,15 +81,38 @@ nav a {
 }
 
 .hero {
-    height: 90vh;
-    background: url('hero.jpg') center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
+    padding: 0 20px;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        url("hero.jpg") center/cover no-repeat;
+    z-index: -1;
+    animation: slowZoom 15s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
 <section class="section fade-in" style="text-align:center;">
 <h2>Available For</h2>
 <p style="margin-top:20px; font-size:18px;">
