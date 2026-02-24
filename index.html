@@ -173,13 +173,15 @@ nav a {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease;
+    transform: scale(0.95);
+    filter: blur(5px);
+    transition: 1s ease;
 }
 
 .fade-in.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+    filter: blur(0);
 }
 
 /* FOLDER GRID */
@@ -277,10 +279,46 @@ footer {
     width: 100%;
 }
 
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 2s;
+}
+
+#loader h1 {
+    font-size: 40px;
+    letter-spacing: 5px;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+body {
+    transition: opacity 0.4s ease;
+}
+
 
 </style>
 </head>
 <body>
+<div id="loader">
+    <h1>NIKKCHROMA</h1>
+</div>
 <div class="cursor-glow"></div>
 <nav>
 <h1>NIKKCHROMA</h1>
@@ -427,6 +465,22 @@ const glow = document.querySelector('.cursor-glow');
 glow.style.left = e.clientX + 'px';
 glow.style.top = e.clientY + 'px';
 });
+
+<script>
+document.querySelectorAll("a").forEach(link => {
+link.addEventListener("click", function(e) {
+const href = this.getAttribute("href");
+if (href && href.endsWith(".html")) {
+e.preventDefault();
+document.body.style.opacity = "0";
+setTimeout(() => {
+window.location = href;
+}, 400);
+}
+});
+});
+</script>
+
 </script>
 
 </body>
