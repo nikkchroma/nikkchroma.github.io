@@ -4,72 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nikkchroma | Automotive Visuals</title>
+
 <meta name="description" content="Nikkchroma - Automotive photographer in Chennai specializing in superbike photography, car meets, and cinematic rollers.">
-<meta name="keywords" content="Chennai automotive photographer, superbike photography, car meets Chennai, rollers photography">
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
 <style>
 
-
-
-#closeBtn {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-.hero h2 {
-    animation: heroFade 1.5s ease forwards;
-    opacity: 0;
-}
-
-.hero h2 {
-    font-size: 64px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-.hero p {
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin-top: 20px;
-}
-
-@keyframes heroFade {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-    
-html {
-scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #0b0b0b;
+    background: #0b0b0b;
     color: white;
 }
 
+/* NAVBAR */
 nav {
     display: flex;
     justify-content: space-between;
@@ -82,8 +33,9 @@ nav {
 }
 
 nav h1 {
+    font-size: 32px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 nav a {
@@ -92,61 +44,71 @@ nav a {
     margin-left: 20px;
 }
 
+/* HERO */
 .hero {
     height: 100vh;
     position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 0 20px;
+    overflow: hidden;
 }
 
 .hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
         url("hero.jpg") center/cover no-repeat;
     z-index: -1;
-    animation: slowZoom 15s ease-in-out infinite alternate;
+    animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
 @keyframes slowZoom {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
-}
-<section class="section fade-in" style="text-align:center;">
-<h2>Available For</h2>
-<p style="margin-top:20px; font-size:18px;">
-• Private Automotive Shoots <br>
-• Superbike Sessions <br>
-• Car Meets & Rollers <br>
-• Brand Collaborations
-</p>
-<br>
-<a class="btn" href="https://wa.me/91YOURNUMBER" target="_blank">
-Book a Shoot
-</a>
-</section>
-.hero h2 {
-    font-size: 60px;
-    letter-spacing: 2px;
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
 }
 
+.hero h2 {
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+/* BUTTON */
+.btn {
+    background: #b11226;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* SECTION */
 .section {
     padding: 100px 10%;
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* GALLERY */
 .gallery {
     column-count: 3;
     column-gap: 20px;
@@ -156,58 +118,58 @@ Book a Shoot
     width: 100%;
     margin-bottom: 20px;
     border-radius: 10px;
-    transition: 0.4s ease;
+    cursor: pointer;
     break-inside: avoid;
-}
-
-@media (max-width: 1000px) {
-    .gallery {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery {
-        column-count: 1;
-    }
+    transition: 0.3s ease;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(225,6,0,0.4);
+    transform: scale(1.03);
 }
 
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+    .gallery { column-count: 1; }
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+}
+
+#closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
-    padding: 30px;
-    background: linear-gradient(45deg, #e10600, #ff3c00);
-    color: gray;
+    padding: 40px;
+    background: #000;
 }
 
-.btn {
-    background: #e10600;
-    padding: 12px 25px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-.gallery img {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: imageReveal 1s ease forwards;
-}
-
-.gallery img:nth-child(1) { animation-delay: 0.2s; }
-.gallery img:nth-child(2) { animation-delay: 0.4s; }
-.gallery img:nth-child(3) { animation-delay: 0.6s; }
-.gallery img:nth-child(4) { animation-delay: 0.8s; }
-
-@keyframes imageReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 </style>
 </head>
 <body>
@@ -224,7 +186,7 @@ footer {
 <section class="hero">
 <div>
 <h2>Visual that Slaps</h2>
-<p style="font-weight:4000;">Motorsport Photography & Cinematic Rollers | Chennai</p>
+<p>Motorsport Photography & Cinematic Rollers | Chennai</p>
 <br>
 <a class="btn" href="#portfolio">View Portfolio</a>
 </div>
@@ -232,54 +194,37 @@ footer {
 
 <section class="section fade-in" id="portfolio">
 <h2>Portfolio</h2>
+
+<h3>Cars</h3>
 <div class="gallery">
-<h3 style="margin-top:40px;">Cars</h3>
-<div class="gallery">
-  <img src="car1.jpg">
-  <img src="car2.jpg">
-  <img src="car3.jpg">
+<img src="car1.jpg">
+<img src="car2.jpg">
+<img src="car3.jpg">
 </div>
 
-<h3 style="margin-top:60px;">Superbikes</h3>
+<h3>Superbikes</h3>
 <div class="gallery">
-  <img src="bike1.jpg">
-  <img src="bike2.jpg">
-  <img src="bike3.jpg">
+<img src="bike1.jpg">
+<img src="bike2.jpg">
+<img src="bike3.jpg">
 </div>
 
-<h3 style="margin-top:60px;">Rollers</h3>
+<h3>Rollers</h3>
 <div class="gallery">
-  <img src="roller1.jpg">
-  <img src="roller2.jpg">
-  <img src="roller3.jpg">
+<img src="roller1.jpg">
+<img src="roller2.jpg">
+<img src="roller3.jpg">
 </div>
-</div>
+
 </section>
 
 <section class="section fade-in" style="text-align:center;">
-<h2>Premium Wallpapers</h2>
-<p style="margin-top:20px;">
-Exclusive 4K automotive wallpapers available for purchase.
-Optimized for mobile & desktop.
-</p>
-<br>
-<a class="btn" href="https://instagram.com/nikkchroma" target="_blank">
-View Wallpaper Packs
-</a>
-</section>
-</section>  <!-- end of portfolio -->
-
-<section class="section fade-in" style="text-align:center;">
-<h2 style="margin-bottom:30px;">Featured Reel</h2>
-
-<video style="width:100%; max-width:700px; border-radius:12px;" autoplay muted loop playsinline>
-  <source src="reel.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+<h2>Featured Reel</h2>
+<video controls style="width:100%; max-width:700px; border-radius:12px;">
+<source src="reel.mp4" type="video/mp4">
 </video>
-
 </section>
 
-<section class="section fade-in" id="about">
 <section class="section fade-in" id="about">
 <h2>About</h2>
 <p>
@@ -289,81 +234,71 @@ Capturing motion, aggression, and mechanical beauty through cinematic frames.
 </p>
 </section>
 
-
+<section class="section fade-in" id="contact">
+<h2>Contact</h2>
+<p>Available for shoots & collaborations.</p>
+<br>
+<a class="btn" href="https://instagram.com/nikkchroma" target="_blank">Instagram</a>
+<br><br>
+<a class="btn" href="https://wa.me/917550003517" target="_blank">Book a Shoot</a>
+</section>
 
 <section class="section fade-in" style="text-align:center;">
-<h2>Trusted By</h2>
-
-<p style="margin-top:30px; font-size:22px; font-weight:500; letter-spacing:2px; line-height:40px;">
+<h2>Featured Collaborations</h2>
+<p style="line-height:40px;">
 Cruise Culture <br>
 Southside Motorsport Club <br>
 Madras Driven <br>
 INMRC 2025 Coverage <br>
 INDRC 2026 Coverage
 </p>
-
 </section>
 
 <footer>
 © 2026 Nikkchroma | Chennai Automotive Visuals
 </footer>
+
+<div id="lightbox">
+<span id="closeBtn">&times;</span>
+<img id="lightboxImg">
+</div>
+
 <script>
+/* Fade In */
 const faders = document.querySelectorAll('.fade-in');
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+entries.forEach(entry => {
+if (!entry.isIntersecting) return;
+entry.target.classList.add('show');
+observer.unobserve(entry.target);
+});
+}, { threshold: 0.2 });
 
-const appearOptions = {
-    threshold: 0.2
-};
+faders.forEach(fader => appearOnScroll.observe(fader));
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-        }
-    });
-}, appearOptions);
-
-
-<script>
+/* Lightbox */
 const images = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const closeBtn = document.getElementById('closeBtn');
 
 images.forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-    });
+img.addEventListener('click', () => {
+lightbox.style.display = 'flex';
+lightboxImg.src = img.src;
+});
 });
 
 closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
+lightbox.style.display = 'none';
 });
 
 lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
-        lightbox.style.display = 'none';
-    }
+if (e.target !== lightboxImg) {
+lightbox.style.display = 'none';
+}
 });
 </script>
-</script>
 
-</footer>
-
-<!-- Lightbox HTML -->
-<div id="lightbox" style="display:none;">
-    <span id="closeBtn">&times;</span>
-    <img id="lightboxImg">
-</div>
-
-<script>
-  // all your JS code here
-</script>
-
-</body>
-</html>
 </body>
 </html>
