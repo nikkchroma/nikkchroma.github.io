@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 
 <style>
-
 body {
     animation: pageFade 1s ease;
 }
@@ -95,7 +94,7 @@ nav a {
     z-index: -1;
     animation: slowZoom 20s ease-in-out infinite alternate;
 }
-    
+
 .hero::before {
     background-attachment: fixed;
 }
@@ -132,16 +131,13 @@ nav a {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 8px 20px rgba(177,18,38,0.3);
+    position: relative;
+    overflow: hidden;
 }
 
 .btn:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(177,18,38,0.5);
-}
-
-.btn {
-    position: relative;
-    overflow: hidden;
 }
 
 .btn::before {
@@ -207,8 +203,8 @@ nav a {
 }
 
 .folder-cover:hover {
-    transform: scale(1.07);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(177,18,38,0.4);
 }
 
 .folder-overlay {
@@ -220,15 +216,6 @@ nav a {
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 1px;
-}
-
-.folder-cover {
-    transition: all 0.4s ease;
-}
-
-.folder-cover:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 50px rgba(177,18,38,0.4);
 }
 
 /* FOOTER */
@@ -280,6 +267,7 @@ footer {
     width: 100%;
 }
 
+/* Loader */
 #loader {
     position: fixed;
     width: 100%;
@@ -348,9 +336,9 @@ footer {
     bottom: 0;
     transition: 0.2s ease;
 }
-
 </style>
 </head>
+
 <body>
 
 <div id="loader">
@@ -360,12 +348,12 @@ footer {
 <div class="cursor-glow"></div>
 
 <nav>
-<h1>NIKKCHROMA</h1>
-<div>
-<a href="#portfolio">Portfolio</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</div>
+    <h1>NIKKCHROMA</h1>
+    <div>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
 
 <div class="rpm">
@@ -379,15 +367,15 @@ footer {
 </div>
 
 <section class="hero">
-<div>
-<h2>Visuals that Slap</h2>
-<p>Motorsport Photography & Cinematic Rollers | Chennai</p>
-<br>
-<a class="btn" href="#portfolio">View Portfolio</a>
-</div>
+    <div>
+        <h2>Visuals that Slap</h2>
+        <p>Motorsport Photography & Cinematic Rollers | Chennai</p>
+        <br>
+        <a class="btn" href="#portfolio">View Portfolio</a>
+    </div>
 </section>
 
-<!-- Remaining sections and scripts exactly as you originally posted -->
+<!-- Rest of your sections and scripts remain unchanged -->
 
 </body>
 </html>
