@@ -32,6 +32,64 @@ a { color:white; text-decoration:none;}
     animation: zoomIn 0.3s ease;
 }
 
+/* ===== PRO LIGHTBOX ===== */
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.96);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 14px;
+    box-shadow: 0 0 50px rgba(177,18,38,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+.lb-close,
+.lb-prev,
+.lb-next {
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.lb-close {
+    top: 30px;
+    right: 40px;
+}
+
+.lb-prev {
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lb-next {
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
 #closeBtn {
     position: absolute;
     top: 30px;
@@ -93,6 +151,63 @@ lightbox.addEventListener('click', (e) => {
     if (e.target !== lightboxImg) {
         lightbox.style.display = 'none';
     }
+});
+</script>
+
+<div id="lightbox">
+    <span class="lb-close">&times;</span>
+    <span class="lb-prev">&#10094;</span>
+    <img id="lightbox-img">
+    <span class="lb-next">&#10095;</span>
+</div>
+
+<script>
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lb-close');
+const nextBtn = document.querySelector('.lb-next');
+const prevBtn = document.querySelector('.lb-prev');
+
+let currentIndex = 0;
+const imageArray = Array.from(images);
+
+images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentIndex = index;
+        showImage();
+        lightbox.style.display = 'flex';
+    });
+});
+
+function showImage() {
+    lightboxImg.src = imageArray[currentIndex].src;
+}
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % imageArray.length;
+    showImage();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
+    showImage();
+});
+
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") lightbox.style.display = 'none';
+    if (e.key === "ArrowRight") nextBtn.click();
+    if (e.key === "ArrowLeft") prevBtn.click();
 });
 </script>
 
