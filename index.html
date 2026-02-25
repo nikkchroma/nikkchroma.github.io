@@ -465,6 +465,57 @@ body {
     color: #b11226;
 }
 
+/* ===== CINEMATIC SINGLE REEL ===== */
+
+.cinematic-reel {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.reel-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(177,18,38,0.3);
+}
+
+.reel-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* keeps vertical safe */
+    display: none;
+}
+
+.reel-video.active {
+    display: block;
+}
+
+/* Arrows */
+.reel-prev,
+.reel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+}
+
+.reel-prev { left: -60px; }
+.reel-next { right: -60px; }
+
+.reel-prev:hover,
+.reel-next:hover {
+    color: #b11226;
+}
+
 </style>
 </head>
 
@@ -518,35 +569,33 @@ body {
 </section>
 
 <section class="section fade-in" style="text-align:center;">
-    <h2>Featured Reels</h2>
+    <h2>Featured Reel</h2>
     <br>
 
-    <div class="reel-wrapper">
+    <div class="cinematic-reel">
+
         <span class="reel-prev">&#10094;</span>
 
-        <div class="reel-slider">
-           <video class="reel-video active" controls preload="metadata">
-    <source src="reel1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-
+        <div class="reel-frame">
             <video class="reel-video active" controls preload="metadata">
-    <source src="reel2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+                <source src="reel1.mp4" type="video/mp4">
+            </video>
 
-            <video class="reel-video active" controls preload="metadata">
-    <source src="reel3.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-              
-              <video class="reel-video active" controls preload="metadata">
-    <source src="reel4.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+            <video class="reel-video" controls preload="metadata">
+                <source src="reel2.mp4" type="video/mp4">
+            </video>
+
+            <video class="reel-video" controls preload="metadata">
+                <source src="reel3.mp4" type="video/mp4">
+            </video>
+
+            <video class="reel-video" controls preload="metadata">
+                <source src="reel4.mp4" type="video/mp4">
+            </video>
         </div>
 
         <span class="reel-next">&#10095;</span>
+
     </div>
 </section>
 
@@ -723,6 +772,33 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
     currentReel = (currentReel - 1 + reels.length) % reels.length;
     showReel(currentReel);
+});
+</script>
+
+<script>
+const reels = document.querySelectorAll('.reel-video');
+const nextBtn = document.querySelector('.reel-next');
+const prevBtn = document.querySelector('.reel-prev');
+
+let current = 0;
+
+function showReel(index) {
+    reels.forEach(video => {
+        video.classList.remove('active');
+        video.pause();
+    });
+
+    reels[index].classList.add('active');
+}
+
+nextBtn.addEventListener('click', () => {
+    current = (current + 1) % reels.length;
+    showReel(current);
+});
+
+prevBtn.addEventListener('click', () => {
+    current = (current - 1 + reels.length) % reels.length;
+    showReel(current);
 });
 </script>
 
