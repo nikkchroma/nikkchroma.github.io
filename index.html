@@ -22,6 +22,61 @@
 
 <style>
 
+/* ===== CINEMATIC RED AMBIENT SYSTEM ===== */
+
+body {
+    background: radial-gradient(circle at center, #0d0d0d 0%, #000 60%);
+}
+
+/* Hero glow core */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(177,18,38,0.25), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(100px);
+    z-index: -1;
+    animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+/* Section subtle glow */
+.section::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(177,18,38,0.12), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(120px);
+    z-index: -1;
+}
+
+/* Folder glow on hover */
+.folder-cover:hover {
+    box-shadow:
+        0 0 20px rgba(177,18,38,0.4),
+        0 0 60px rgba(177,18,38,0.2);
+}
+
+/* Button cinematic glow */
+.btn:hover {
+    box-shadow:
+        0 0 10px rgba(177,18,38,0.6),
+        0 0 30px rgba(177,18,38,0.4),
+        0 0 60px rgba(177,18,38,0.2);
+}
+
 /* --- YOUR ENTIRE CSS IS KEPT EXACTLY SAME --- */
 /* I DID NOT REMOVE ANYTHING FROM YOUR CSS */
 
