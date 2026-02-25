@@ -433,16 +433,22 @@ body {
 }
 
 .reel-video {
+    position: absolute;
     width: 100%;
-    max-height: 70vh;
-    object-fit: contain;
-    background: black;
-    border-radius: 14px;
-    box-shadow: 0 0 50px rgba(177,18,38,0.4);
+    height: 100%;
+    object-fit: cover;        /* FULL CROP */
+    object-position: center;  /* Center focus */
+    display: none;
 }
 
 .reel-video.active {
     display: block;
+    animation: reelZoom 0.5s ease;
+}
+
+@keyframes reelZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
 }
 
 .reel-prev,
@@ -487,7 +493,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* keeps vertical safe */
+    object-fit: cover; /* keeps vertical safe */
     display: none;
 }
 
