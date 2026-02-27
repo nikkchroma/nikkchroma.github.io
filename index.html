@@ -538,6 +538,34 @@ body {
     color: #b11226;
 }
 
+.image-wrapper {
+  position: relative;
+}
+
+.protected-img {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.protected-img {
+  filter: blur(2px);
+  transition: 0.3s ease;
+}
+
+.image-wrapper:hover .protected-img {
+  filter: blur(0);
+}
+
 </style>
 </head>
 
@@ -599,6 +627,26 @@ body {
   </div>
 </div>
 
+  <div class="image-wrapper">
+  <img src="poster1.jpg" class="protected-img">
+  <div class="overlay"></div>
+</div>
+
+  <div class="image-wrapper">
+  <img src="poster2.jpg" class="protected-img">
+  <div class="overlay"></div>
+</div>
+
+  <div class="image-wrapper">
+  <img src="poster3.jpg" class="protected-img">
+  <div class="overlay"></div>
+</div>
+
+  <div class="image-wrapper">
+  <img src="poster4.jpg" class="protected-img">
+  <div class="overlay"></div>
+</div>
+  
     <!-- Digital -->
     <div style="background:#1a1a1a; padding:30px; border-radius:12px; width:300px;">
       <h3>Digital Bundle</h3>
@@ -973,6 +1021,14 @@ function openUPI(type) {
 function closeUPI() {
   document.getElementById("upiModal").style.display = "none";
 }
+
+<script>
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+</script>
+
+
 </script>
 
 </body>
