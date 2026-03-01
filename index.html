@@ -1,595 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C5WLF0P0E8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-C5WLF0P0E8');
-</script>
-    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nikkchroma | Automotive Visuals</title>
 
-<meta name="description" content="Nikkchroma - Automotive photographer in Chennai specializing in superbike photography, car meets, and cinematic rollers.">
+<meta name="description" content="Nikkchroma - Automotive photographer in Chennai specializing in cinematic rollers and motorsport visuals.">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== CINEMATIC RED AMBIENT SYSTEM ===== */
-
-body {
-    background: radial-gradient(circle at center, #0d0d0d 0%, #000 60%);
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:#0b0b0b;
+    color:white;
 }
 
-/* Hero glow core */
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(177,18,38,0.25), transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(100px);
-    z-index: -1;
-    animation: glowPulse 4s ease-in-out infinite alternate;
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 10%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-@keyframes glowPulse {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
+nav h1{
+    font-weight:800;
+    letter-spacing:3px;
 }
 
-/* Section subtle glow */
-.section::before {
-    content: "";
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(177,18,38,0.12), transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(120px);
-    z-index: -1;
-}
-
-/* Folder glow on hover */
-.folder-cover:hover {
-    box-shadow:
-        0 0 20px rgba(177,18,38,0.4),
-        0 0 60px rgba(177,18,38,0.2);
-}
-
-/* Button cinematic glow */
-.btn:hover {
-    box-shadow:
-        0 0 10px rgba(177,18,38,0.6),
-        0 0 30px rgba(177,18,38,0.4),
-        0 0 60px rgba(177,18,38,0.2);
-}
-
-/* --- YOUR ENTIRE CSS IS KEPT EXACTLY SAME --- */
-/* I DID NOT REMOVE ANYTHING FROM YOUR CSS */
-
-body {
-    animation: pageFade 1s ease;
-}
-
-@keyframes pageFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-nav {
-    animation: navSlide 1s ease;
-}
-
-@keyframes navSlide {
-    from { transform: translateY(-100%); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-html { scroll-behavior: smooth; }
-
-#progressBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 0%;
-    background: linear-gradient(90deg, #b11226, #ff3c00);
-    z-index: 2000;
-}
-
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #0b0b0b;
-    color: white;
-}
-
-/* NAVBAR */
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 10%;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav h1 {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: 3px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
 }
 
 /* HERO */
-
-.hero {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    overflow: hidden;
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
     background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
+        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
         url("hero.jpg") center/cover no-repeat;
-    z-index: -1;
-    animation: slowZoom 20s ease-in-out infinite alternate;
-    background-attachment: fixed;
+    z-index:-1;
+    animation:zoom 20s ease-in-out infinite alternate;
 }
 
-@keyframes slowZoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+@keyframes zoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
 }
 
-.hero h2 {
-    animation: heroText 1.2s ease forwards;
-    opacity: 0;
+.hero h2{
+    font-size:48px;
+    margin-bottom:20px;
 }
 
-.hero p {
-    animation: heroText 1.6s ease forwards;
-    opacity: 0;
+.hero p{
+    opacity:0.8;
+    font-size:18px;
 }
 
-@keyframes heroText {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* SECTIONS */
+.section{
+    padding:120px 10%;
 }
 
-/* CINEMATIC RED HERO GLOW */
-
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(177,18,38,0.25), transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(80px);
-    z-index: -1;
-    animation: glowPulse 4s ease-in-out infinite alternate;
+.section h2{
+    font-size:36px;
+    margin-bottom:40px;
+    text-align:center;
 }
 
-@keyframes glowPulse {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
+/* PORTFOLIO GRID */
+.folder-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
 }
 
-/* BUTTON */
-
-.btn {
-    background: linear-gradient(135deg, #b11226, #8e0f1f);
-    padding: 14px 28px;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(177,18,38,0.3);
-    position: relative;
-    overflow: hidden;
+.folder-card{
+    text-decoration:none;
 }
 
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(177,18,38,0.5);
+.folder-cover{
+    height:260px;
+    border-radius:16px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+    transition:0.4s ease;
 }
 
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: 0.5s;
+.folder-cover:hover{
+    transform:translateY(-8px) scale(1.04);
 }
 
-.btn:hover::before {
-    left: 100%;
+.folder-overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:25px;
+    background:linear-gradient(transparent,rgba(0,0,0,0.9));
+    font-size:22px;
+    font-weight:700;
 }
 
-.contact-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
+/* REEL */
+.reel-frame{
+    width:100%;
+    max-width:900px;
+    aspect-ratio:16/9;
+    margin:auto;
+    border-radius:16px;
+    overflow:hidden;
 }
 
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 0 10px rgba(177,18,38,0.6),
-        0 0 25px rgba(177,18,38,0.4),
-        0 0 40px rgba(177,18,38,0.2);
+.reel-frame video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.buy-btn {
-  background:#ff3c00;
-  color:white;
-  border:none;
-  padding:12px 25px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:bold;
+/* STATS */
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    margin-top:40px;
+    flex-wrap:wrap;
 }
 
-.buy-btn:hover {
-  background:#ff1e00;
-  transform:scale(1.05);
-  transition:0.3s;
+.stats h3{
+    font-size:40px;
 }
 
-/* SECTION */
-
-.section {
-    padding: 100px 10%;
+/* CONTACT */
+.contact-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
 }
 
-.fade-in {
-    opacity: 0;
-    transform: scale(0.95);
-    filter: blur(5px);
-    transition: 1s ease;
+.btn{
+    background:#b11226;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.3s ease;
 }
 
-.fade-in.show {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
+.btn:hover{
+    transform:translateY(-4px);
 }
 
-/* FOLDER GRID */
-
-.folder-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+/* FADE ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
 }
 
-.folder-card {
-    text-decoration: none;
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.folder-cover {
-    height: 260px;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-    transition: 0.4s ease;
-}
-
-.folder-cover {
-    height: 260px;
-    border-radius: 18px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    transform-style: preserve-3d;
-}
-
-.folder-cover::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.02) 40%,
-        transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.folder-cover:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.8),
-        0 0 40px rgba(177,18,38,0.4);
-}
-
-.folder-cover:hover::after {
-    opacity: 1;
-}
-
-.folder-overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 28px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.95));
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: transform 0.4s ease;
-}
-
-.folder-cover:hover .folder-overlay {
-    transform: translateY(-5px);
-}
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #000;
-}
-
-.stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 40px;
-}
-
-.stats h3 {
-    font-size: 40px;
-    color: #b11226;
-}
-
-/* LOADER */
-
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 1s ease, visibility 1s ease;
-}
-
-.loader-text {
-    font-size: 40px;
-    letter-spacing: 6px;
-    color: white;
-    animation: pulse 1.8s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
-}
-
-.loader-hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.cursor-glow {
-    position: fixed;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(177,18,38,0.15), transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-body {
-    transition: opacity 0.3s ease;
-}
-
-/* ===== CINEMATIC REEL SLIDER ===== */
-
-.reel-wrapper {
-    position: relative;
-    max-width: 700px;
-    margin: auto;
-}
-
-.reel-slider {
-    position: relative;
-}
-
-.reel-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* FULL CROP */
-    object-position: center;  /* Center focus */
-    display: none;
-}
-
-.reel-video.active {
-    display: block;
-    animation: reelZoom 0.5s ease;
-}
-
-@keyframes reelZoom {
-    from { transform: scale(1.08); }
-    to { transform: scale(1); }
-}
-
-.reel-prev,
-.reel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-    padding: 10px;
-}
-
-.reel-prev { left: -50px; }
-.reel-next { right: -50px; }
-
-.reel-prev:hover,
-.reel-next:hover {
-    color: #b11226;
-}
-
-/* ===== CINEMATIC SINGLE REEL ===== */
-
-.cinematic-reel {
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.reel-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 0 80px rgba(177,18,38,0.3);
-}
-
-.reel-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* keeps vertical safe */
-    display: none;
-}
-
-.reel-video.active {
-    display: block;
-}
-
-/* Arrows */
-.reel-prev,
-.reel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    z-index: 10;
-    padding: 10px;
-}
-
-.reel-prev { left: -60px; }
-.reel-next { right: -60px; }
-
-.reel-prev:hover,
-.reel-next:hover {
-    color: #b11226;
-}
-
-.image-wrapper {
-  position: relative;
-}
-
-.protected-img {
-  width: 100%;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.protected-img {
-  filter: blur(2px);
-  transition: 0.3s ease;
-}
-
-.image-wrapper:hover .protected-img {
-  filter: blur(0);
-}
-
-.poster {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.poster img {
-  width: 100%;
-  display: block;
-  filter: blur(5px);
-  transition: 0.4s ease;
-}
-
-.poster:hover img {
-  filter: blur(0);
-  transform: scale(1.03);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+footer{
+    text-align:center;
+    padding:40px;
+    background:#000;
 }
 
 </style>
@@ -597,469 +200,103 @@ body {
 
 <body>
 
-<div class="cursor-glow"></div>
-
-<div id="loader">
-    <h1 class="loader-text">NIKKCHROMA</h1>
-</div>
-
 <nav>
     <h1>NIKKCHROMA</h1>
     <div>
         <a href="#portfolio">Portfolio</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#store">Shop</a>
     </div>
 </nav>
 
 <section class="hero">
     <div>
-        <h2>Visual that Slaps</h2>
-        <p>Motorsport Photography & Cinematic Rollers | Chennai</p>
-        <br>
-        <a href="#store" class="btn">Shop Posters</a>
+        <h2>Cinematic Automotive Visuals</h2>
+        <p>Motorsport Photography & High-Performance Storytelling — Chennai</p>
     </div>
 </section>
 
-<section id="store" style="padding:120px 20px; background:#0c0c0c; color:white; text-align:center;">
-
-  <h2 style="font-size:48px; margin-bottom:20px;">
-    Chennai Redline Collection
-  </h2>
-
-  <p style="opacity:0.7; max-width:700px; margin:auto; margin-bottom:80px;">
-    2026 Limited BMW M4 Competition Poster Series.
-    Designed for collectors & automotive enthusiasts.
-  </p>
-
-  <!-- MAIN HERO POSTERS -->
-  <div style="
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap:40px;
-    max-width:1100px;
-    margin:auto;
-    margin-bottom:100px;
-  ">
-
-    <div class="poster">
-  <img src="poster1.jpg">
-  <div class="overlay"></div>
-</div>
-
-<div class="poster">
-  <img src="poster2.jpg">
-  <div class="overlay"></div>
-</div>
-
-  </div>
-
-  <!-- SECOND ROW -->
-  <div style="
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap:30px;
-    max-width:900px;
-    margin:auto;
-    margin-bottom:120px;
-  ">
-
-    <div class="poster">
-  <img src="poster3.jpg">
-  <div class="overlay"></div>
-</div>
-
-<div class="poster">
-  <img src="poster4.jpg">
-  <div class="overlay"></div>
-</div>
-  </div>
-
-  <!-- PRICING SECTION -->
-  <div style="
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:50px;
-  ">
-
-    <div style="background:#161616; padding:40px; border-radius:14px; width:300px;">
-      <h3>Digital Bundle</h3>
-      <p style="font-size:32px; margin:20px 0;">₹399</p>
-      <p style="opacity:0.6;">4 High-Resolution Posters<br>Instant Download</p>
-      <br>
-      <button onclick="openUPI('digital')" class="buy-btn">Buy Digital</button>
+<section class="section fade" id="reel">
+    <h2>Featured Reel</h2>
+    <div class="reel-frame">
+        <video src="reel.mp4" controls></video>
     </div>
-
-    <div style="background:#161616; padding:40px; border-radius:14px; width:300px;">
-      <h3>A3 Printed Bundle</h3>
-      <p style="font-size:32px; margin:20px 0;">₹1299</p>
-      <p style="opacity:0.6;">Premium Matte Finish<br>Ships Across India</p>
-      <br>
-      <button onclick="openUPI('print')" class="buy-btn">Buy Printed</button>
-    </div>
-
-  </div>
-
 </section>
 
-<section class="section fade-in" id="portfolio">
+<section class="section fade" id="portfolio">
     <h2>Portfolio</h2>
     <div class="folder-grid">
+
         <a href="cars.html" class="folder-card">
-            <div class="folder-cover" style="background-image: url('cars-cover.jpg');">
+            <div class="folder-cover" style="background-image:url('cars-cover.jpg')">
                 <div class="folder-overlay">Cars Collection</div>
             </div>
         </a>
 
         <a href="bikes.html" class="folder-card">
-            <div class="folder-cover" style="background-image: url('bikes-cover.jpg');">
+            <div class="folder-cover" style="background-image:url('bikes-cover.jpg')">
                 <div class="folder-overlay">Superbikes Collection</div>
             </div>
         </a>
 
         <a href="rollers.html" class="folder-card">
-            <div class="folder-cover" style="background-image: url('rollers-cover.jpg');">
+            <div class="folder-cover" style="background-image:url('rollers-cover.jpg')">
                 <div class="folder-overlay">Rollers Collection</div>
             </div>
         </a>
-    </div>
-</section>
-
-<section class="section fade-in" style="text-align:center;">
-    <h2>Featured Reel</h2>
-    <br>
-
-    <div class="cinematic-reel">
-
-        <span class="reel-prev">&#10094;</span>
-
-        <div class="reel-frame">
-            <video class="reel-video active" controls preload="metadata">
-                <source src="reel.mp4" type="video/mp4">
-            </video>
-
-            <video class="reel-video" controls preload="metadata">
-                <source src="reel2.mp4" type="video/mp4">
-            </video>
-
-            <video class="reel-video" controls preload="metadata">
-                <source src="reel3.mp4" type="video/mp4">
-            </video>
-
-            <video class="reel-video" controls preload="metadata">
-                <source src="reel4.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <span class="reel-next">&#10095;</span>
 
     </div>
 </section>
 
-<section class="section fade-in" id="about">
+<section class="section fade" id="about">
     <h2>About</h2>
-
-    <p style="margin-top:30px; line-height:28px; max-width:900px; margin-left:auto; margin-right:auto;">
-
-        Nikkchroma is an automotive visual creator based in Chennai, 
-        specializing in high-performance car and superbike photography. 
-        Focused on capturing motion, aggression, and mechanical beauty 
-        through cinematic storytelling.
-
-        <br><br>
-
-        From track days to street rollers, every frame is built around 
-        energy, precision, and atmosphere. My work blends sharp detail, 
-        dramatic lighting, and bold color grading to create visuals that 
-        feel alive — not just documented.
-
-        <br><br>
-
-        I work with car communities, riders, motorsport events, and 
-        automotive brands to deliver powerful visuals that stand out 
-        across social media, campaigns, and digital platforms.
-
-        <br><br>
-
-        Whether it's a midnight city roller, a race day at the circuit, 
-        or a brand collaboration shoot — the goal stays the same:
-        create visuals that slap and leave impact.
+    <p style="max-width:800px;margin:auto;line-height:28px;text-align:center;">
+        Nikkchroma is an automotive visual creator based in Chennai,
+        capturing motion, aggression, and mechanical beauty through cinematic storytelling.
     </p>
 </section>
 
-<section class="section fade-in" id="contact">
-    <h2>Contact</h2>
-    <p>Available for shoots & collaborations.</p>
-    <br>
-    <div class="contact-buttons">
-        <a class="btn" href="https://instagram.com/nikkchroma" target="_blank">
-            Instagram
-        </a>
-        <a class="btn" href="https://wa.me/917550003517" target="_blank">
-            Book a Shoot
-        </a>
-    </div>
-</section>
-
-<section class="section fade-in" style="text-align:center;">
-    <h2>Featured Collaborations</h2>
-    <p style="line-height:40px;">
-        Cruise Culture <br>
-        Southside Motorsport Club <br>
-        Madras Driven <br>
-        INMRC 2025 Coverage <br>
-        INDRC 2026 Coverage
-    </p>
-</section>
-
-<section class="section fade-in" style="text-align:center;">
+<section class="section fade" style="text-align:center;">
     <h2>Impact</h2>
     <div class="stats">
         <div>
-            <h3>100</h3>
+            <h3>100+</h3>
             <p>Projects</p>
-        </div>
-        <div>
-            <h3>600</h3>
-            <p>Followers</p>
         </div>
         <div>
             <h3>100K+</h3>
             <p>Monthly Views</p>
         </div>
+        <div>
+            <h3>Chennai</h3>
+            <p>Based</p>
+        </div>
     </div>
 </section>
-<script>
-const faders = document.querySelectorAll('.fade-in');
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-    });
-}, { threshold: 0.2 });
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
-</script>
+<section class="section fade" id="contact" style="text-align:center;">
+    <h2>Contact</h2>
+    <p>Available for shoots & collaborations.</p>
+    <div class="contact-buttons">
+        <a class="btn" href="https://instagram.com/nikkchroma" target="_blank">Instagram</a>
+        <a class="btn" href="https://wa.me/917550003517" target="_blank">Book a Shoot</a>
+    </div>
+</section>
 
 <footer>
     © 2026 Nikkchroma | Chennai Automotive Visuals
 </footer>
 
 <script>
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-    });
-}, { threshold: 0.2 });
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
-</script>
-
-
-<script>
-document.addEventListener("mousemove", e => {
-    const glow = document.querySelector(".cursor-glow");
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-});
-</script>
-
-<script>
-window.addEventListener("scroll", function() {
-    let scrollTop = document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (scrollTop / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
-});
-</script>
-
-<script>
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-    });
-}, { threshold: 0.2 });
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
-</script>
-
-<script>
-window.addEventListener("load", function() {
-    const loader = document.getElementById("loader");
-
-    setTimeout(() => {
-        loader.classList.add("loader-hidden");
-    }, 2000);
-});
-</script>
-<div id="loader">
-    <h1 class="loader-text">NIKKCHROMA</h1>
-</div>
-
-<script>
-document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", function(e) {
-        const href = this.getAttribute("href");
-        if (href && href.endsWith(".html")) {
-            e.preventDefault();
-            document.body.style.opacity = "0";
-            setTimeout(() => {
-                window.location = href;
-            }, 300);
+const elements=document.querySelectorAll('.fade');
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
         }
     });
-});
-</script>
-
-<script>
-const reels = document.querySelectorAll('.reel-video');
-const nextBtn = document.querySelector('.reel-next');
-const prevBtn = document.querySelector('.reel-prev');
-
-let currentReel = 0;
-
-function showReel(index) {
-    reels.forEach(reel => {
-        reel.classList.remove('active');
-        reel.pause();
-    });
-
-    reels[index].classList.add('active');
-}
-
-nextBtn.addEventListener('click', () => {
-    currentReel = (currentReel + 1) % reels.length;
-    showReel(currentReel);
-});
-
-prevBtn.addEventListener('click', () => {
-    currentReel = (currentReel - 1 + reels.length) % reels.length;
-    showReel(currentReel);
-});
-</script>
-
-<script>
-const reels = document.querySelectorAll('.reel-video');
-const nextBtn = document.querySelector('.reel-next');
-const prevBtn = document.querySelector('.reel-prev');
-
-let current = 0;
-
-function showReel(index) {
-    reels.forEach(video => {
-        video.classList.remove('active');
-        video.pause();
-    });
-
-    reels[index].classList.add('active');
-}
-
-nextBtn.addEventListener('click', () => {
-    current = (current + 1) % reels.length;
-    showReel(current);
-});
-
-prevBtn.addEventListener('click', () => {
-    current = (current - 1 + reels.length) % reels.length;
-    showReel(current);
-});
-</script>
-
-<div id="upiModal" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-z-index:9999;
-">
-
-  <div style="
-  background:#111;
-  padding:40px;
-  border-radius:12px;
-  text-align:center;
-  max-width:400px;
-  color:white;
-  ">
-
-    <h2 id="paymentTitle">Complete Payment</h2>
-
-    <p id="paymentAmount">Scan QR and pay</p>
-
-    <img src="upi.png" style="width:250px; margin:20px 0; border-radius:10px;">
-
-    <p><strong>UPI ID:</strong> 7550003517@fam</p>
-
-    <p style="font-size:14px; opacity:0.8;">
-      After payment, send screenshot + your email / address to:
-      <br>
-      your Instagram DM
-    </p>
-
-    <br>
-
-    <button onclick="closeUPI()" style="
-    background:#ff3c00;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:6px;
-    cursor:pointer;">
-      Close
-    </button>
-
-  </div>
-</div>
-
-<script>
-function openUPI(type) {
-  document.getElementById("upiModal").style.display = "flex";
-
-  if(type === "digital") {
-    document.getElementById("paymentTitle").innerText = "Digital Bundle – ₹399";
-    document.getElementById("paymentAmount").innerText = "Scan QR and pay ₹399";
-  }
-
-  if(type === "print") {
-    document.getElementById("paymentTitle").innerText = "Printed Bundle – ₹1299";
-    document.getElementById("paymentAmount").innerText = "Scan QR and pay ₹1299";
-  }
-}
-
-function closeUPI() {
-  document.getElementById("upiModal").style.display = "none";
-}
-
-<script>
-document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-});
-</script>
-
-
+},{threshold:0.2});
+elements.forEach(el=>observer.observe(el));
 </script>
 
 </body>
