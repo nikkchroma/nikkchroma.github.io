@@ -18,6 +18,10 @@ body{
     color:white;
 }
 
+body{
+    background: radial-gradient(circle at center, #111 0%, #000 70%);
+}
+
 /* NAV */
 nav{
     display:flex;
@@ -90,6 +94,29 @@ nav a{
     margin-bottom:40px;
     text-align:center;
 }
+
+.hero-title{
+    font-size:64px;
+    font-weight:800;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.hero-sub{
+    font-size:18px;
+    opacity:0.8;
+    letter-spacing:2px;
+}
+
+.energy-strip{
+    background:#b11226;
+    padding:25px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+
 
 /* PORTFOLIO GRID */
 .folder-grid{
@@ -195,10 +222,29 @@ footer{
     background:#000;
 }
 
+
+.energy-strip{
+    background:#b11226;
+    padding:25px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.section-title{
+    font-size:42px;
+    text-transform:uppercase;
+    letter-spacing:6px;
+    border-bottom:2px solid #b11226;
+    display:inline-block;
+    padding-bottom:10px;
+}
 </style>
 </head>
 
 <body>
+
+
 
 <nav>
     <h1>NIKKCHROMA</h1>
@@ -211,8 +257,14 @@ footer{
 
 <section class="hero">
     <div>
-        <h2>Cinematic Automotive Visuals</h2>
+        <h2>Visual that Slaps</h2>
         <p>Motorsport Photography & High-Performance Storytelling — Chennai</p>
+    </div>
+</section>
+
+<section class="energy-strip">
+    <div class="energy-text">
+        SPEED • MOTION • GRIT • MECHANICAL VIOLENCE
     </div>
 </section>
 
@@ -224,7 +276,7 @@ footer{
 </section>
 
 <section class="section fade" id="portfolio">
-    <h2>Portfolio</h2>
+    <h2 class="section-title">PORTFOLIO</h2>
     <div class="folder-grid">
 
         <a href="cars.html" class="folder-card">
