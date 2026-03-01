@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikkchroma | Automotive Visuals</title>
+<title>Nikkchroma | Performance Visual Studio</title>
 
-<meta name="description" content="Nikkchroma - Automotive photographer in Chennai specializing in cinematic rollers and motorsport visuals.">
+<meta name="description" content="Nikkchroma - Automotive Performance Visual Studio based in Chennai. Motorsport films, cinematic rollers and brand visuals.">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
 
@@ -14,21 +14,17 @@
 body{
     margin:0;
     font-family:'Montserrat',sans-serif;
-    background:#0b0b0b;
-    color:white;
-}
-
-body{
     background: radial-gradient(circle at center, #111 0%, #000 70%);
+    color:white;
 }
 
 /* NAV */
 nav{
     display:flex;
     justify-content:space-between;
-    padding:20px 10%;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
+    padding:22px 10%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(12px);
     position:sticky;
     top:0;
     z-index:1000;
@@ -36,14 +32,19 @@ nav{
 
 nav h1{
     font-weight:800;
-    letter-spacing:3px;
+    letter-spacing:4px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin-left:25px;
+    margin-left:30px;
     font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#b11226;
 }
 
 /* HERO */
@@ -63,7 +64,7 @@ nav a{
     width:100%;
     height:100%;
     background:
-        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+        linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.9)),
         url("hero.jpg") center/cover no-repeat;
     z-index:-1;
     animation:zoom 20s ease-in-out infinite alternate;
@@ -71,96 +72,62 @@ nav a{
 
 @keyframes zoom{
     from{transform:scale(1);}
-    to{transform:scale(1.1);}
+    to{transform:scale(1.12);}
 }
 
-.hero h2{
-    font-size:48px;
-    margin-bottom:20px;
+.hero-main{
+    font-size:78px;
+    font-weight:800;
+    letter-spacing:10px;
 }
 
-.hero p{
-    opacity:0.8;
-    font-size:18px;
+.hero-tagline{
+    font-size:20px;
+    margin-top:15px;
+    color:#b11226;
+    text-transform:uppercase;
+    letter-spacing:5px;
+}
+
+.hero-sub{
+    margin-top:25px;
+    opacity:0.85;
+    letter-spacing:2px;
+}
+
+/* ENERGY STRIP */
+.energy-strip{
+    background:#b11226;
+    padding:22px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:5px;
 }
 
 /* SECTIONS */
 .section{
-    padding:120px 10%;
+    padding:140px 10%;
 }
 
-.section h2{
-    font-size:36px;
-    margin-bottom:40px;
-    text-align:center;
-}
-
-.hero-title{
-    font-size:64px;
-    font-weight:800;
-    letter-spacing:4px;
+.section-title{
+    font-size:44px;
     text-transform:uppercase;
-}
-
-.hero-sub{
-    font-size:18px;
-    opacity:0.8;
-    letter-spacing:2px;
-}
-
-.energy-strip{
-    background:#b11226;
-    padding:25px;
-    text-align:center;
-    font-weight:700;
-    letter-spacing:4px;
-}
-
-
-
-/* PORTFOLIO GRID */
-.folder-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.folder-card{
-    text-decoration:none;
-}
-
-.folder-cover{
-    height:260px;
-    border-radius:16px;
-    background-size:cover;
-    background-position:center;
-    position:relative;
-    overflow:hidden;
-    transition:0.4s ease;
-}
-
-.folder-cover:hover{
-    transform:translateY(-8px) scale(1.04);
-}
-
-.folder-overlay{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    padding:25px;
-    background:linear-gradient(transparent,rgba(0,0,0,0.9));
-    font-size:22px;
-    font-weight:700;
+    letter-spacing:8px;
+    margin-bottom:60px;
+    display:inline-block;
+    border-bottom:2px solid #b11226;
+    padding-bottom:12px;
 }
 
 /* REEL */
 .reel-frame{
     width:100%;
-    max-width:900px;
+    max-width:1000px;
     aspect-ratio:16/9;
     margin:auto;
-    border-radius:16px;
+    border-radius:18px;
     overflow:hidden;
+    box-shadow:0 0 80px rgba(177,18,38,0.25);
 }
 
 .reel-frame video{
@@ -169,17 +136,55 @@ nav a{
     object-fit:cover;
 }
 
+/* PORTFOLIO */
+.folder-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.folder-card{
+    text-decoration:none;
+}
+
+.folder-cover{
+    height:280px;
+    border-radius:18px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+    transition:0.4s ease;
+}
+
+.folder-cover:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 25px 60px rgba(0,0,0,0.8);
+}
+
+.folder-overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:30px;
+    background:linear-gradient(transparent,rgba(0,0,0,0.95));
+    font-size:24px;
+    font-weight:700;
+}
+
 /* STATS */
 .stats{
     display:flex;
     justify-content:center;
-    gap:60px;
-    margin-top:40px;
+    gap:80px;
+    margin-top:50px;
     flex-wrap:wrap;
 }
 
 .stats h3{
-    font-size:40px;
+    font-size:52px;
+    font-weight:800;
+    color:#b11226;
 }
 
 /* CONTACT */
@@ -187,13 +192,13 @@ nav a{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:20px;
+    gap:25px;
 }
 
 .btn{
     background:#b11226;
-    padding:14px 28px;
-    border-radius:8px;
+    padding:16px 32px;
+    border-radius:10px;
     text-decoration:none;
     color:white;
     font-weight:600;
@@ -201,10 +206,11 @@ nav a{
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
+    box-shadow:0 0 30px rgba(177,18,38,0.5);
 }
 
-/* FADE ANIMATION */
+/* FADE */
 .fade{
     opacity:0;
     transform:translateY(40px);
@@ -218,98 +224,92 @@ nav a{
 
 footer{
     text-align:center;
-    padding:40px;
+    padding:50px;
     background:#000;
+    font-size:14px;
+    opacity:0.6;
 }
 
-
-.energy-strip{
-    background:#b11226;
-    padding:25px;
-    text-align:center;
-    font-weight:700;
-    letter-spacing:4px;
-}
-
-.section-title{
-    font-size:42px;
+.hero-slap{
+    margin-top:25px;
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:8px;
     text-transform:uppercase;
-    letter-spacing:6px;
-    border-bottom:2px solid #b11226;
-    display:inline-block;
-    padding-bottom:10px;
+    color:#b11226;
 }
+
 </style>
 </head>
 
 <body>
 
-
-
 <nav>
     <h1>NIKKCHROMA</h1>
     <div>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
+        <a href="#portfolio">Work</a>
+        <a href="#about">Studio</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <section class="hero">
     <div>
-        <h2>Visual that Slaps</h2>
-        <p>Motorsport Photography & High-Performance Storytelling — Chennai</p>
+        <div class="hero-main">NIKKCHROMA</div>
+        <div class="hero-tagline">Performance Visual Studio</div>
+        <div class="hero-slap"> VISUAL THAT SLAPS.</div>
+        <div class="hero-sub">
+            Automotive Films • Motorsport Coverage • Brand Campaign Visuals
+        </div>
     </div>
 </section>
 
 <section class="energy-strip">
-    <div class="energy-text">
-        SPEED • MOTION • GRIT • MECHANICAL VIOLENCE
-    </div>
+    SPEED • MOTION • GRIT • REDLINE • PERFORMANCE
 </section>
 
-<section class="section fade" id="reel">
-    <h2>Featured Reel</h2>
+<section class="section fade">
+    <h2 class="section-title">Featured Film</h2>
     <div class="reel-frame">
         <video src="reel.mp4" controls></video>
     </div>
 </section>
 
 <section class="section fade" id="portfolio">
-    <h2 class="section-title">PORTFOLIO</h2>
-    <div class="folder-grid">
+    <h2 class="section-title">Selected Work</h2>
 
+    <div class="folder-grid">
         <a href="cars.html" class="folder-card">
             <div class="folder-cover" style="background-image:url('cars-cover.jpg')">
-                <div class="folder-overlay">Cars Collection</div>
+                <div class="folder-overlay">Cars</div>
             </div>
         </a>
 
         <a href="bikes.html" class="folder-card">
             <div class="folder-cover" style="background-image:url('bikes-cover.jpg')">
-                <div class="folder-overlay">Superbikes Collection</div>
+                <div class="folder-overlay">Superbikes</div>
             </div>
         </a>
 
         <a href="rollers.html" class="folder-card">
             <div class="folder-cover" style="background-image:url('rollers-cover.jpg')">
-                <div class="folder-overlay">Rollers Collection</div>
+                <div class="folder-overlay">Rollers</div>
             </div>
         </a>
-
     </div>
 </section>
 
 <section class="section fade" id="about">
-    <h2>About</h2>
-    <p style="max-width:800px;margin:auto;line-height:28px;text-align:center;">
-        Nikkchroma is an automotive visual creator based in Chennai,
-        capturing motion, aggression, and mechanical beauty through cinematic storytelling.
+    <h2 class="section-title">The Studio</h2>
+    <p style="max-width:850px;margin:auto;line-height:30px;text-align:center;">
+        Nikkchroma is a Chennai-based automotive performance visual studio 
+        focused on cinematic storytelling, motorsport energy, and high-impact brand imagery.
+        Every frame is engineered for emotion, motion, and mechanical intensity.
     </p>
 </section>
 
-<section class="section fade" style="text-align:center;">
-    <h2>Impact</h2>
+<section class="section fade">
+    <h2 class="section-title">Studio Metrics</h2>
     <div class="stats">
         <div>
             <h3>100+</h3>
@@ -317,7 +317,7 @@ footer{
         </div>
         <div>
             <h3>100K+</h3>
-            <p>Monthly Views</p>
+            <p>Monthly Reach</p>
         </div>
         <div>
             <h3>Chennai</h3>
@@ -327,8 +327,8 @@ footer{
 </section>
 
 <section class="section fade" id="contact" style="text-align:center;">
-    <h2>Contact</h2>
-    <p>Available for shoots & collaborations.</p>
+    <h2 class="section-title">Contact</h2>
+    <p>Available for shoots, campaigns & collaborations.</p>
     <div class="contact-buttons">
         <a class="btn" href="https://instagram.com/nikkchroma" target="_blank">Instagram</a>
         <a class="btn" href="https://wa.me/917550003517" target="_blank">Book a Shoot</a>
@@ -336,7 +336,7 @@ footer{
 </section>
 
 <footer>
-    © 2026 Nikkchroma | Chennai Automotive Visuals
+    © 2026 Nikkchroma | Performance Visual Studio
 </footer>
 
 <script>
